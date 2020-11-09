@@ -14,3 +14,4 @@ class TaskView(View):
             'sod/tasks.html',
             {'task_list': tasks}
         )
+

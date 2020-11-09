@@ -1,29 +1,21 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Профиль</title>
-    <link rel="stylesheet" type="text/css" href={% static "css/style.css" %}>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap" rel="stylesheet">
-</head>
-<body>
- <header>
-        <nav>
-            <div class="Nav" id="INav">
-                <a href="#" class="menu" id="icon" onclick="openMenu()">&#9776;</a>
-                <a href="tasks.html" class="Task">Задания</a>
-                <a href="#" >Выход</a>
-            </div>
-        </nav>
-    </header>
+{% extends "sod/base.html" %}
 
+{% block content %}
+
+    <body>
     <main>
-        <div>
-            <h3>Имя</h3>
-            <p>Группа</p>
-        </div>
+        {% for user in user_list %}
+            <div>
+                <img src="{{ user.photo.url }}" alt="Фото">
+                <div>
+                    <p>{{ user.name }}</p>
+                    <p>{{ user.surname }}</p>
+                    <p>{{ user.middle_name }}</p>
+                    <p>{{ user.date_of_birth }}</p>
+                </div>
+            </div>
+        {% endfor %}
     </main>
+    </body>
 
-</body>
-</html>
+{% endblock content %}

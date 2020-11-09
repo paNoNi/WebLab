@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задания</title>
+    <link rel="stylesheet" type="text/css" href={% static "css/style.css" %}>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap" rel="stylesheet">
+    <script src={% static "js/scripts.js" %}></script>
+</head>
+<body>
+{% include 'include/header.html' %}
+    <div class="Page">
+
+        {% block content %}
+        {% endblock content %}
+
+    </div>
+</body>
+</html>
