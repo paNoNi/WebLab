@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задания</title>
+    <link rel="stylesheet" type="text/css" href={% static "css/style.css" %}>
+    <link href={% static "https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap" %} rel="stylesheet">
+    <script src={% static "js/scripts.js" %}></script>
+</head>
+    <body>
+        <header>
+            <nav>
+                <div class="Nav" id="INav">
+                    <a href="#" class="menu" id="icon" onclick="openMenu()">&#9776;</a>
+                    <a href="#">Добавить</a>
+                    <a href="#">Удалить</a>
+                    <a href="profile.html" class="Profile">Профиль</a>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <section class="Tasks">
+                {% for task in task_list %}
+                <div>
+                    <div>
+                        <h3>{{ task.name }}</h3>
+                        <p>{{ task.description }}</p>
+                        <p>{{ task.date }}</p>
+                    </div>
+                    <img src="{{ task.image.url }}" alt="Пикча">
+                </div>
+                {% endfor %}
+            </section>
+        </main>
+
+    </body>
+</html>
