@@ -1,0 +1,13 @@
+<header>
+    <nav>
+        <div class="Nav" id="INav">
+            <a href="#" class="menu" id="icon" onclick="openMenu()">&#9776;</a>
+            <a href="/tasks" class="Task">Задания</a>
+            {% if user.is_authenticated %}
+                <a href="/profile/{{ user.profile.id }}" class="Profile">{{ user.username }}</a>
+            {% endif %} 
+            <a href="/login">Выход</a>
+            <a href="#">{{ pairs.objects }}</a>
+        </div>
+    </nav>
+</header>

@@ -1,0 +1,16 @@
+{% extends "auth/base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+
+
+    <form method="POST" action="{% url 'login'  %}">
+        <div>
+            {% csrf_token %}
+            {{ form|crispy }}
+            <input type="submit" name="login" value="Вход" class="btn btn-primary">
+        </div>
+
+    </form>
+
+{% endblock content %}

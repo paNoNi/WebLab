@@ -3,6 +3,7 @@ function openMenu() {
     if (x.className === "Nav") {
         x.className += " responsive";
     } else {
-        x.className = "Nav"
+        x.className = "Nav";
     }
 }
+

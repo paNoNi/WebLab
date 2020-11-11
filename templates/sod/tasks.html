@@ -4,22 +4,25 @@
 
     <section class="Manage">
         <div>
-            <a href="#">Добавить</a>
+            <a href="add">Добавить</a>
             <a href="#">Удалить</a>
         </div>
     </section>
 
     <main>
         <section class="Tasks">
-            {% for task in task_list %}
-                <div>
+            {% for pair in pairs_list %}
+                {% if pair.user.id == user.profile.id %}
                     <div>
-                        <h3>{{ task.name }}</h3>
-                        <p>{{ task.description }}</p>
-                        <p>{{ task.date }}</p>
+                        <div>
+                            <h3>{{ pair.task.name }}</h3>
+                            <p>{{ pair.task.description }}</p>
+                            <p>{{ pair.task.date }}</p>
+                        </div>
+                        <img src="{{ pair.task.image.url }}" alt="Пикча">
                     </div>
-                    <img src="{{ task.image.url }}" alt="Пикча">
-                </div>
+                    {% endif %}
+
             {% endfor %}
         </section>
     </main>

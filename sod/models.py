@@ -1,7 +1,6 @@
 from django.db import models
+from Auth.models import Profile
 
-
-# Create your models here.
 
 class Task(models.Model):
     name = models.CharField('Название', max_length=50)
@@ -12,3 +11,11 @@ class Task(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class UserTasks(models.Model):
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    task = models.ForeignKey(Task, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.user

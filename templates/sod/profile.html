@@ -4,17 +4,15 @@
 
     <body>
     <main>
-        {% for user in user_list %}
+        {% if user.id == profile.user.id %}
             <div>
-                <img src="{{ user.photo.url }}" alt="Фото">
-                <div>
-                    <p>{{ user.name }}</p>
-                    <p>{{ user.surname }}</p>
-                    <p>{{ user.middle_name }}</p>
-                    <p>{{ user.date_of_birth }}</p>
-                </div>
+                <img src="{{ profile.photo.url }}" alt="">
+                <p>{{ profile.user }}</p>
+                <p>{{ profile.user.email }}</p>
             </div>
-        {% endfor %}
+        {% else %}
+            <p>Доступ закрыт</p>
+        {% endif %}
     </main>
     </body>
 

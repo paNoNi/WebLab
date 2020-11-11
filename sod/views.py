@@ -1,17 +1,20 @@
 from django.shortcuts import render
 from django.views.generic.base import View
 
-# Create your views here.
-from sod.models import Task
+from sod.models import UserTasks
 
 
-class TaskView(View):
+class UserTasksView(View):
 
     def get(self, request):
-        tasks = Task.objects.all()
+        pairs = UserTasks.objects.all()
         return render(
             request,
             'sod/tasks.html',
-            {'task_list': tasks}
+            {'pairs_list': pairs}
         )
 
+class AddTask(View):
+
+    def get(self, request):
+        return render(request, 'sod/addtask.html')
