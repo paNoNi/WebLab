@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.views.generic import DetailView
 
 from Auth.forms import UserRegisterForm
@@ -10,7 +11,7 @@ from Auth.models import Profile
 
 
 def index(request):
-    return render(request, "auth/base.html")
+    return redirect(reverse(register))
 
 
 def register(request):
@@ -20,9 +21,7 @@ def register(request):
         if User.objects.filter(email=email).exists():
             messages.error(request, 'Пользователь с этим электронным адресом уже зарегестрирован')
         else:
-            print('else')
             if form.is_valid():
-                print('Valid')
                 ins = form.save()
                 username = form.cleaned_data['username']
                 password = form.cleaned_data['password1']

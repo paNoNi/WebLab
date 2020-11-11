@@ -2,8 +2,8 @@
     <nav>
         <div class="Nav" id="INav">
             <a href="#" class="menu" id="icon" onclick="openMenu()">&#9776;</a>
-            <a href="/login" class="Task">Войти</a>
-            <a href="/register" class="Profile">Регистрация</a>
+            <a href="{% url 'login' %}" class="Task">Войти</a>
+            <a href="{% url 'register' %}" class="Profile">Регистрация</a>
         </div>
     </nav>
 </header>
