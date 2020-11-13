@@ -17,7 +17,7 @@ def index(request):
 def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
-        email = request.POST.get('email')
+        email = request.POST.get_task_view('email')
         if User.objects.filter(email=email).exists():
             messages.error(request, 'Пользователь с этим электронным адресом уже зарегестрирован')
         else:
@@ -31,7 +31,7 @@ def register(request):
                 ins.save()
                 form.save_m2m()
                 messages.success(request, 'Вы успешно зарегестрировались!')
-                return redirect('/tasks')
+                return redirect('tasks')
 
     else:
         form = UserRegisterForm()

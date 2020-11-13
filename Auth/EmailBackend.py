@@ -9,7 +9,7 @@ class CustomBackend(ModelBackend):
 
     def authenticate(self, request, username=None, password=None, **kwargs):
         try:
-            user = UserModel.objects.get(email=username)
+            user = UserModel.objects.get_task_view(email=username)
         except UserModel.DoesNotExist:
             return None
         else:

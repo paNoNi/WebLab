@@ -6,7 +6,6 @@ from django.urls import reverse
 
 
 class Profile(models.Model):
-
     user = models.OneToOneField(User, verbose_name='Пользователь', on_delete=models.CASCADE)
     photo = models.ImageField("Аватар", upload_to='photos/', default='photos/empty_photo.jpg')
 
@@ -21,7 +20,8 @@ class Profile(models.Model):
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
-        Profile.objects.create(user=instance)#, id=instance.id)
+        Profile.objects.create(user=instance)  # , id=instance.id)
+
 
 @receiver
 def save_user_profile(sender, instance, **kwargs):
