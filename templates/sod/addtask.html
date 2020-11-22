@@ -1,19 +1,15 @@
 {% extends "sod/base.html" %}
+{% load crispy_forms_filters %}
 
 {% block title %}
     Добавить задание
 {% endblock %}
 
 {% block content %}
-    <h1>Создать задание</h1>
-    <form method="POST">
+    <form method="POST" class="InputForm" action="add" enctype="multipart/form-data">
+        <h1>Создать задание</h1>
         {% csrf_token %}
-        {{ form.name }}<br>
-        {{ form.description }}<br>
-        {{ form.date }}<br>
-        {{ form.object }}<br>
-        {{ form.image }}<br>
+        {{ form|crispy }}
         <button type="submit" class="btn btn-success">Добавить</button>
-        <span>error</span>
     </form>
 {% endblock content %}

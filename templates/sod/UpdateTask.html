@@ -1,0 +1,16 @@
+{% extends "sod/base.html" %}
+{% load crispy_forms_filters %}
+
+{% block title %}
+    Изменить задание
+{% endblock %}
+
+{% block content %}
+    <form method="POST" class="InputForm" action="updatetask-{{ task.id }}" enctype="multipart/form-data">
+        <h1>Изменить задание</h1>
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit" class="btn btn-success">Изменить</button>
+
+    </form>
+{% endblock content %}

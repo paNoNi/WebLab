@@ -1,15 +1,15 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from django.views.generic.base import View
+from django.views.generic import DetailView, UpdateView, DeleteView
 
 from Auth.models import Profile
 from sod.forms import TaskForm
-from sod.models import UserTasks
+from sod.models import UserTasks, Task
 
 
-def get_task_view(request):
+def save_task(request):
     if request.method == 'POST':
-        form = TaskForm(request.POST)
+        form = TaskForm(request.POST, request.FILES)
         user_id = request.user.id
         profile = Profile.objects.get(user_id=user_id)
         user_task = UserTasks()
@@ -20,13 +20,13 @@ def get_task_view(request):
             user_task.task = form.instance
             user_task.save()
             return redirect(reverse('tasks'))
+    else:
+        form = TaskForm()
+        context = {
+            'form': form
+        }
 
-    form = TaskForm()
-    context = {
-        'form': form
-    }
-
-    return render(request, 'sod/addtask.html', context)
+        return render(request, 'sod/addtask.html', context)
 
 
 def get_usertask(request):
@@ -37,3 +37,28 @@ def get_usertask(request):
         {'pairs_list': pairs}
     )
 
+
+class TaskDetailView(UpdateView):
+    model = Task
+    form_class = TaskForm
+    template_name_suffix = 'form'
+    context_object_name = 'task'
+    template_name = 'sod/UpdateTask.html'
+
+    def get_success_url(self):
+        return reverse('tasks')
+
+
+class TaskDeleteView(DeleteView):
+    model = Task
+    context_object_name = 'task'
+    template_name = 'sod/DeleteTask.html'
+
+    def get_success_url(self):
+        return reverse('tasks')
+
+
+class DescriptionDetail(DetailView):
+    model = Task
+    context_object_name = 'task'
+    template_name = 'sod/description.html'

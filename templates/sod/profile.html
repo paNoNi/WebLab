@@ -9,10 +9,14 @@
     <body>
     <main>
         {% if user.id == profile.user.id %}
-            <div>
+            <div class="Profile">
                 <img src="{{ profile.photo.url }}" alt="">
-                <p>{{ profile.user }}</p>
-                <p>{{ profile.user.email }}</p>
+                <div>
+                    <h4>Никнейм</h4>
+                    <p>{{ profile.user }}</p>
+                    <h4>Эл. адрес</h4>
+                    <p>{{ profile.user.email }}</p>
+                </div>
             </div>
         {% else %}
             <p>Доступ закрыт</p>

@@ -1,202 +1,256 @@
-*{
-    margin: 0;
-    padding: 0;
-}
-
-a {
-    text-decoration: none;
-}
-
-li {
-    text-decoration: none;
-    list-style: none;
-}
-
-body {
-    font-family: 'Space Grotesk', sans-serif;
-}
-
-nav {
-    display: flex;
-    justify-content: center;
-    margin: auto;
-    width: 450px;
-    height: 100px;
-}
-
 .Nav {
-    background-color: white;
-    font-size: 14px;
-    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: black;
+    height: 3rem;
 }
 
-.Nav a, .Manage > div > a {
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    font-size: 20px;
+.Nav > a {
+    margin-right: 5%;
+    color: white;
+    margin-top: auto;
+    margin-bottom: auto;
+    text-decoration: none;
+    font-size: larger;
 }
 
-.Manage > div > a {
-    font-size: 18px;
+.Nav > a:hover {
+    color: lightgray;
+    text-decoration: none;
+    font-size: large;
 }
 
-.Nav a:hover, .Manage > div > a:hover {
-    border-bottom: 3px solid black;
-}
-
-.Nav a:hover {
-    font-size: 21px;
-}
-
-.Manage > div > a:hover {
-    font-size: 19px;
-}
-
-.Nav  .menu {
+.Nav a:nth-child(n+5) {
     display: none;
 }
 
-.Manage {
+.NoneTask {
     display: flex;
     justify-content: center;
-    margin: auto;
-    height: 60px;
-    width: 400px;
-}
-
-@media screen and (max-width: 768px) {
-    .Nav a{
-        display: none;
-    }
-
-    .Nav a.menu {
-        float: right;
-        margin-top: -17px;
-        display: block;
-        color: black;
-    }
-
-    nav {
-        width: 100%;
-        height: 100px;
-        border: 1px solid black;
-    }
-
-    .Nav.responsive {
-        display: block;
-        position: relative;
-        width: 100%;
-    }
-
-
-    .Nav.responsive a.menu {
-        position: relative;
-        left: 90%;
-        top: 2%;
-    }
-
-    .Nav.responsive a {
-        float: none;
-        width: 100%;
-        display: block;
-        text-align: left;
-        background-color: black;
-        color: white;
-    }
-
-}
-
-main {
-    margin: auto;
-    display: flex;
-    width: 90%;
-    border: 1px solid black;
-    justify-content: center;
+    color: #acacac;
 }
 
 .Tasks {
     display: grid;
-    width: 95%;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    border: 1px solid black;
+    grid-template-rows: repeat(5, 1fr);
 }
 
-
-.Tasks  img {
-    width: 100px;
-    border-radius: 30px;
+.Tasks > div > div > * {
+    color: white;
 }
 
 .Tasks > div {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    border: 1px solid black;
-    border-radius: 10px;
-    padding: 2%;
+    position: relative;
+    justify-content: right;
+    filter: grayscale(100%);
+    transition-duration: 0.6s;
+}
+
+
+.Tasks > div > div {
+    width: 30%;
+    color: black;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 1%;
 }
 
 .Tasks > div:hover {
-    background-color: lightgray;
+    filter: grayscale(0%);
+    cursor: pointer;
+    transition-duration: 0.6s;
 }
 
-
-main > div > img {
-    padding: 10px;
-    width: 200px;
-}
-
-
-main > div > div{
-    border: 1px solid black;
-    border-radius: 10px;
-    text-align: center;
-}
-
-.AddTask {
-    display: none;
-    flex-wrap: wrap;
-    justify-content: center;
-    position: fixed;
+.Tasks > div > img {
+    display: flex;
     width: 100%;
-    height: 50%;
-    top: 15%;
-    text-align: center;
+    max-width: 500px;
+    height: 100%;
+    max-height: 300px;
 }
 
-.AddTask > div {
-    width: 60%;
-    border: 1px solid black;
-    border-radius: 15px;
-    background-color: white;
-    padding: 5%;
-}
-
-.AddTask > div > * {
-    margin-bottom: 5%;
-}
-
-.AddTask img {
-    margin-top: 5%;
-    width: 150px;
-}
-
-form {
+.Profile {
     display: flex;
     justify-content: center;
-    width: 100%;
-    margin-left: auto;
+    flex-direction: row;
+    padding: 5%;
+    border-bottom: 1px solid white;
 }
 
-form > div {
+.Profile > img {
+    width: 10em;
+}
+
+.Profile > div {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.Profile p, h4 {
+    margin-left: 5%;
+}
+
+.InputForm {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    justify-content: center;
+    margin: auto;
+    color: white;
+}
+
+.InputForm > h1 {
+    margin: auto;
+}
+
+.InputForm > button {
+    width: 30%;
+    margin: auto;
+    background-color: gray;
+    border: 1px solid white;
+}
+
+.InputForm > button:hover {
+    background-color: #616161;
+    border: 1px solid white;
+}
+
+.InputForm > .DeleteBlock {
+    margin: 45% auto auto;
+    font-size: large;
     display: flex;
     flex-direction: column;
 }
 
-form input {
+.DeleteBlock > p {
+    margin: auto auto 10%;
+}
+
+.InputForm > .DeleteBlock > div {
     display: flex;
     margin: auto;
-    width: 80%;
+}
+
+
+.InputForm > .DeleteBlock > div > button:last-child {
+    margin-left: 2%;
+}
+
+
+.InputForm > .DeleteBlock > div > button:first-child {
+    margin-right: 2%;
+}
+
+.TaskDetail {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    border: 1px solid white;
+    background-color: #616161;
+    border-radius: 10px;
+    margin: 3% 20%;
+}
+
+
+.TaskDetail > div:nth-child(1) {
+    margin: auto;
+}
+
+.TaskDetail > div:nth-child(2) {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+
+.TaskDetail > div:nth-child(2) > p:nth-child(2) {
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+    border-radius: 10px;
+    padding: 1%;
+}
+
+.TaskDetail > div:nth-child(n + 3) {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: 6%;
+}
+
+
+.TaskDetail > div:nth-child(n + 3) > p:nth-child(1){
+    margin-right: 1rem;
+}
+
+.Back {
+    position: absolute;
+    margin-top: 0.5%;
+    padding-left: 0.5%;
+}
+
+
+.TaskDetail a{
+    color: white;
+    text-decoration: none;
+    transition-duration: 0.2s;
+    margin-bottom: 5%;
+}
+
+
+.TaskDetail a:hover{
+    color: black;
+    text-decoration: none;
+    transition-duration: 0.2s;
+}
+
+
+@media screen and (max-width: 680px) {
+
+
+    .Nav a:nth-child(n + 5) {
+        display: flex;
+    }
+
+
+    .Nav a:nth-child(n + 5) > svg {
+        width: 100px;
+    }
+
+    .Nav a:nth-child(-n + 4) {
+        display: none;
+    }
+
+    .Tasks {
+        display: grid;
+        grid-template-columns: 1fr;
+        max-width: 600px;
+    }
+
+    .InputForm {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        justify-content: center;
+        margin: auto;
+        color: white;
+    }
+
+    .InputForm > h1 {
+        margin: auto;
+    }
+
+    .InputForm > button {
+        width: 60%;
+        margin: auto;
+        background-color: gray;
+        border: 1px solid white;
+    }
+
 }

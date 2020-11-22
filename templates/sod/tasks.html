@@ -6,26 +6,18 @@
 
 {% block content %}
 
-    <section class="Manage">
-        <div>
-            <a href="add">Добавить</a>
-            <a href="#">Удалить</a>
-        </div>
-    </section>
-
     <main>
         <section class="Tasks">
             {% for pair in pairs_list %}
                 {% if pair.user.id == user.profile.id %}
-                    <div>
-                        <div>
+                    <div onClick="window.location.href='description-{{ pair.task.id }}'" style="background: url('{{ pair.task.image.url }}')">
+                        <div class="Description">
                             <h3>{{ pair.task.name }}</h3>
-                            <p>{{ pair.task.description }}</p>
                             <p>{{ pair.task.date }}</p>
                         </div>
                         <img src="{{ pair.task.image.url }}" alt="Пикча">
                     </div>
-                    {% endif %}
+                {% endif %}
 
             {% endfor %}
         </section>
