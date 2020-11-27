@@ -28,13 +28,14 @@
                 <p>{{ task.date }}</p>
             </div>
 
-            <div>
-                <a href="/updatetask-{{ task.id }}">Редактировать</a>
+            <div class="Change">
+                <button onClick="window.location.href='/updatetask-{{ task.id }}'" class="btn btn-primary">Редактировать
+                </button>
+
+                <button onClick="window.location.href='/deletetask-{{ task.id }}'" class="btn btn-danger">Удалить
+                </button>
             </div>
 
-            <div>
-                <a href="/deletetask-{{ task.id }}">Удалить</a>
-            </div>
 
             <div class="Back">
                 <a href="tasks">

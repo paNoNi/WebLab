@@ -224,7 +224,15 @@
     transition-duration: 0.2s;
 }
 
+.Change {
+    display: flex;
+    flex-direction: row;;
+}
 
+.Change > button {
+    margin-left: 5%;
+    margin-bottom: 5%;
+}
 
 
 @media screen and (max-width: 680px) {
