@@ -19,3 +19,5 @@ class UserTasks(models.Model):
 
     def __str__(self):
         return self.user.user.username
+
+

@@ -1,5 +1,4 @@
 {% extends "sod/base.html" %}
-{% load custom_tags %}
 
 {% block title %}
     Задания
@@ -14,15 +13,7 @@
                     <div onClick="window.location.href='description-{{ pair.task.id }}'" style="background: url('{{ pair.task.image.url }}')">
                         <div class="Description">
                             <h3>{{ pair.task.name }}</h3>
-                            {% if rem_date|get_item:pair.task.id > 14%}
-                                <p style="color: aquamarine; background: black">{{ pair.task.date }}</p>
-                            {% elif rem_date|get_item:pair.task.id > 7%}
-                                <p style="color: khaki; background: black">{{ pair.task.date }}</p>
-                            {% elif rem_date|get_item:pair.task.id <= 0 %}
-                                <p style="color: darkred; background: white">{{ pair.task.date }}</p>
-                            {% else %}
-                                <p style="color: orange; background: black">{{ pair.task.date }}</p>
-                            {% endif %}
+                            <p>{{ pair.task.date }}</p>
                         </div>
                         <img src="{{ pair.task.image.url }}" alt="Пикча">
                     </div>

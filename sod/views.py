@@ -6,6 +6,8 @@ from Auth.models import Profile
 from sod.forms import TaskForm
 from sod.models import UserTasks, Task
 
+import datetime
+
 
 def save_task(request):
     if request.method == 'POST':
@@ -31,10 +33,15 @@ def save_task(request):
 
 def get_usertask(request):
     pairs = UserTasks.objects.all()
+    rem_date = dict()
+    for pair in pairs:
+        if pair.user_id == request.user.id:
+            rem_date[pair.task.id] = (pair.task.date - datetime.date.today()).days
     return render(
         request,
         'sod/tasks.html',
-        {'pairs_list': pairs}
+        {'pairs_list': pairs,
+         'rem_date': rem_date}
     )
 
 
