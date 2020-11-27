@@ -13,4 +13,4 @@
 - Jinja 2
 
 ## Внешний вид сайта:
-![alt tag](https://ibb.co/g4ndK8g "Основная страница")
+![alt tag](https://ibb.co/g4ndK8g)
