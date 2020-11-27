@@ -1,13 +1,23 @@
-.Nav {
+.Nav  {
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+    height: 3rem;
+    justify-content: center;
+}
+
+.Nav > div {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    background-color: black;
-    height: 3rem;
 }
 
-.Nav > a {
-    margin-right: 5%;
+.Nav > #MediaMenu {
+    display: none;
+}
+
+.Nav > div > a {
+    margin-right: 15%;
     color: white;
     margin-top: auto;
     margin-bottom: auto;
@@ -15,13 +25,13 @@
     font-size: larger;
 }
 
-.Nav > a:hover {
+.Nav > div > a:hover {
     color: lightgray;
     text-decoration: none;
     font-size: large;
 }
 
-.Nav a:nth-child(n+5) {
+.Nav > div > a:nth-child(n+5) {
     display: none;
 }
 
@@ -34,7 +44,6 @@
 .Tasks {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(5, 1fr);
 }
 
 .Tasks > div > div > * {
@@ -216,26 +225,28 @@
 }
 
 
+
+
 @media screen and (max-width: 680px) {
 
 
-    .Nav a:nth-child(n + 5) {
+    .Nav #MediaMenu {
         display: flex;
     }
 
 
-    .Nav a:nth-child(n + 5) > svg {
+    .Nav svg {
         width: 100px;
     }
 
-    .Nav a:nth-child(-n + 4) {
+    .Nav #FullMenu {
         display: none;
     }
 
     .Tasks {
         display: grid;
         grid-template-columns: 1fr;
-        max-width: 600px;
+        max-width: 100%;
     }
 
     .InputForm {
