@@ -13,4 +13,4 @@
 - Jinja 2
 
 ## Внешний вид сайта:
-![alt text](WebLab/images/readmefiles/web_tasks.png)
+![web_tasks](https://user-images.githubusercontent.com/43295370/100431140-caccf200-30a8-11eb-8340-7aec6933f58f.png)
