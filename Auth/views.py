@@ -5,7 +5,7 @@ from django.views.generic import DetailView
 from Auth.forms import UserRegisterForm
 from django.contrib.auth.models import User
 from django.contrib import messages
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, logout, login
 
 from Auth.models import Profile
 
@@ -15,9 +15,10 @@ def index(request):
 
 
 def register(request):
+    print(request)
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
-        email = request.POST.get_task_view('email')
+        email = request.POST.get('email')
         if User.objects.filter(email=email).exists():
             messages.error(request, 'Пользователь с этим электронным адресом уже зарегестрирован')
         else:
@@ -27,6 +28,7 @@ def register(request):
                 password = form.cleaned_data['password1']
 
                 user = authenticate(username=username, password=password, email=email)
+                login(request, user)
                 ins.email = email
                 ins.save()
                 form.save_m2m()

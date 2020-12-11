@@ -76,7 +76,7 @@ WSGI_APPLICATION = 'WebLab.wsgi.application'
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
-    'Auth.EmailBackend.CustomBackend',
+    'Auth.EmailBackend.EmailBackend'
 ]
 
 # Database

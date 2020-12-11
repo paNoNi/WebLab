@@ -4,7 +4,7 @@
             <div id="FullMenu">
                 <a href="add">Добавить</a>
                 {% if user.is_authenticated %}
-                    <a href="profile-{{ user.profile.id }}">{{ user.username }}</a>
+                    <a href="profile-{{ user.id }}">{{ user.username }}</a>
                 {% endif %}
                 <a href="tasks" class="Task">Задания</a>
                 <a href="{% url 'login' %}">Выход</a>
